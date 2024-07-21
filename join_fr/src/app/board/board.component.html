@@ -1,0 +1,10 @@
+@if(error!= '') {
+    <div>{{error}}</div>
+}@else {
+    @for (item of todos; track $index) {
+        <input type="checkbox" [checked]="item.checked">
+        <div>{{item.title}}</div>
+        <div>{{item.created_at}}</div>
+    }
+    
+}
