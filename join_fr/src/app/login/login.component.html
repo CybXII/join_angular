@@ -1,5 +1,101 @@
-<form (ngSubmit)="login()" method="post">
-    <input type="email" name="username" [(ngModel)] = "username" required>
-    <input type="password" name="password" [(ngModel)] = "password" required>
-    <button type="submit">Login</button>
-</form>
+<div class="log-in">
+    <div class="logo">
+        <div id="logo_container" class="{{logoAnimation ? 'big_size background logo_container_responsiv' : 'capa '}} logo_container ">
+            <svg class="{{logoAnimation ? 'join_logo_start capa' : 'background '}}" width="274" height="335"
+                viewBox="0 0 274 335" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M196.314 0H135.623V69.8251H196.314V0Z" fill="#2A3647" />
+                <path
+                    d="M135.623 126.614H196.315V225.091C196.592 248.787 189.848 272.031 176.94 291.868C164.195 311.141 139.591 334.072 94.0723 334.072C44.4917 334.072 15.5931 310.626 0 297.777L38.2825 250.554C53.5021 262.981 68.1615 273.204 94.3057 273.204C114.101 273.204 121.99 265.138 126.612 258.104C132.896 248.334 136.146 236.908 135.95 225.279L135.623 126.614Z"
+                    fill="#2A3647" />
+                <path d="M104.67 82.5332H43.9781V143.495H104.67V82.5332Z" fill="#29ABE2" />
+                <path
+                    d="M228.108 305.467C228.108 318.456 221.525 325.444 212.328 325.444C203.131 325.444 197.108 317.143 197.108 306.123C197.108 295.103 203.318 286.381 212.842 286.381C222.366 286.381 228.108 294.962 228.108 305.467ZM204.158 305.983C204.158 313.814 207.286 319.582 212.655 319.582C218.024 319.582 221.058 313.486 221.058 305.514C221.058 298.526 218.257 291.961 212.655 291.961C207.053 291.961 204.158 298.292 204.158 305.983Z"
+                    fill="#2A3647" />
+                <path d="M240.153 286.944V324.834H233.43V286.944H240.153Z" fill="#2A3647" />
+                <path
+                    d="M247.436 324.834V286.944H254.905L262.935 302.56C265.002 306.643 266.842 310.838 268.444 315.127C268.024 310.438 267.837 305.045 267.837 299.042V286.944H274V324.834H267.044L258.92 308.89C256.77 304.702 254.853 300.397 253.178 295.994C253.178 300.684 253.505 305.983 253.505 312.501V324.787L247.436 324.834Z"
+                    fill="#2A3647" />
+            </svg>
+            @if (logoAnimation) {
+                <svg class="{{logoAnimation ? 'join_logo_start_responsiv capa' : ''}}" width="101" height="122" viewBox="0 0 101 122" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M71.6725 0H49.5146V25.4923H71.6725V0Z" fill="white"/>
+                    <path d="M49.5142 46.2251H71.6721V82.1779C71.7733 90.8292 69.3112 99.3153 64.5986 106.557C59.9455 113.594 50.963 121.966 34.3446 121.966C16.2434 121.966 5.69286 113.406 0 108.715L13.9765 91.4743C19.533 96.0112 24.885 99.7435 34.4299 99.7435C41.6567 99.7435 44.5372 96.7988 46.2247 94.2307C48.5186 90.6637 49.7052 86.4923 49.6335 82.2464L49.5142 46.2251Z" fill="white"/>
+                    <path d="M38.2135 30.1318H16.0557V52.3884H38.2135V30.1318Z" fill="#29ABE2"/>
+                    <path d="M83.2795 111.522C83.2795 116.265 80.8762 118.815 77.5184 118.815C74.1607 118.815 71.9619 115.785 71.9619 111.762C71.9619 107.739 74.2288 104.554 77.7059 104.554C81.183 104.554 83.2795 107.687 83.2795 111.522ZM74.5356 111.711C74.5356 114.57 75.6776 116.675 77.6377 116.675C79.5978 116.675 80.7057 114.45 80.7057 111.539C80.7057 108.988 79.6831 106.592 77.6377 106.592C75.5924 106.592 74.5356 108.903 74.5356 111.711Z" fill="white"/>
+                    <path d="M87.6771 104.76V118.593H85.2227V104.76H87.6771Z" fill="white"/>
+                    <path d="M90.3359 118.593V104.76H93.0631L95.9947 110.461C96.7494 111.952 97.4209 113.483 98.006 115.049C97.8526 113.337 97.7844 111.368 97.7844 109.177V104.76H100.034V118.593H97.4946L94.5289 112.772C93.7437 111.243 93.0438 109.671 92.4324 108.064C92.4324 109.776 92.5517 111.711 92.5517 114.09V118.576L90.3359 118.593Z" fill="white"/>
+                    </svg>
+            }
+        </div>
+    </div>
+    <div class="register-comp-bg d-none" id="msgBox-bg">
+        <div class="register-comp">
+            <span id="msgBox" class="register-comp-text">You Signed Up successfully</span>
+        </div>
+    </div>
+    <div class="register-comp-bg d-none" id="privacybox-bg">
+        <div class="register-comp">
+            <span id="privacybox" class="register-comp-text">Please Accept the Privacy Policy</span>
+        </div>
+    </div>
+    <form class="frame-153" id="frame-153" onsubmit (ngSubmit)="login()" method="post">
+        <div class="frame-155">
+            <label id="parent_email" class="frame-wrapper" for="email" aria-selected="false">
+                <input type="text" name="username" placeholder="User" [(ngModel)]="username" required>
+                <svg width="20" height="17" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M2 16.5C1.45 16.5 0.979167 16.3042 0.5875 15.9125C0.195833 15.5208 0 15.05 0 14.5V2.5C0 1.95 0.195833 1.47917 0.5875 1.0875C0.979167 0.695833 1.45 0.5 2 0.5H18C18.55 0.5 19.0208 0.695833 19.4125 1.0875C19.8042 1.47917 20 1.95 20 2.5V14.5C20 15.05 19.8042 15.5208 19.4125 15.9125C19.0208 16.3042 18.55 16.5 18 16.5H2ZM18 4.5L10.525 9.175C10.4417 9.225 10.3542 9.2625 10.2625 9.2875C10.1708 9.3125 10.0833 9.325 10 9.325C9.91667 9.325 9.82917 9.3125 9.7375 9.2875C9.64583 9.2625 9.55833 9.225 9.475 9.175L2 4.5V14.5H18V4.5ZM10 7.5L18 2.5H2L10 7.5ZM2 4.75V3.275V3.3V3.2875V4.75Z"
+                        fill="#A8A8A8" />
+                </svg>
+            </label>
+        </div>
+        <div class="frame-155">
+            <label id="parent_login_password" for="login_password" class="frame-wrapper">
+                <input type="password" class="frame-14" id="login_password" autocomplete="new-password"
+                    placeholder="Password" name="password" [(ngModel)]="password" required>
+                <svg width="16" height="22" viewBox="0 0 16 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M2 21.5C1.45 21.5 0.979167 21.3042 0.5875 20.9125C0.195833 20.5208 0 20.05 0 19.5V9.5C0 8.95 0.195833 8.47917 0.5875 8.0875C0.979167 7.69583 1.45 7.5 2 7.5H3V5.5C3 4.11667 3.4875 2.9375 4.4625 1.9625C5.4375 0.9875 6.61667 0.5 8 0.5C9.38333 0.5 10.5625 0.9875 11.5375 1.9625C12.5125 2.9375 13 4.11667 13 5.5V7.5H14C14.55 7.5 15.0208 7.69583 15.4125 8.0875C15.8042 8.47917 16 8.95 16 9.5V19.5C16 20.05 15.8042 20.5208 15.4125 20.9125C15.0208 21.3042 14.55 21.5 14 21.5H2ZM2 19.5H14V9.5H2V19.5ZM8 16.5C8.55 16.5 9.02083 16.3042 9.4125 15.9125C9.80417 15.5208 10 15.05 10 14.5C10 13.95 9.80417 13.4792 9.4125 13.0875C9.02083 12.6958 8.55 12.5 8 12.5C7.45 12.5 6.97917 12.6958 6.5875 13.0875C6.19583 13.4792 6 13.95 6 14.5C6 15.05 6.19583 15.5208 6.5875 15.9125C6.97917 16.3042 7.45 16.5 8 16.5ZM5 7.5H11V5.5C11 4.66667 10.7083 3.95833 10.125 3.375C9.54167 2.79167 8.83333 2.5 8 2.5C7.16667 2.5 6.45833 2.79167 5.875 3.375C5.29167 3.95833 5 4.66667 5 5.5V7.5Z"
+                        fill="#A8A8A8" />
+                </svg>
+            </label>
+        </div>
+        <div class="frame-6">
+            <div class="frame-7">
+                <div class="check-button">
+                    <label for="signUpCheck" id="parent_signUpCheck" onclick="toogleChecker('remember')">
+                        <input id="signUpCheck" type="checkbox" class="checkbox">
+                    </label>
+                </div>
+                <div class="text-wrapper-4">Remember me</div>
+            </div>
+        </div>
+        <div class="frame-176">
+            <div class="button-wo-icon">
+                <button  class="button" type="submit">Login</button>
+            </div>
+            <div class="button-seconday-wo">
+                <button class="button-2" >Guest Log in</button>
+            </div>
+        </div>`;
+
+    </form>
+    <div class="frame-156" id="frame-156">
+        <div class="text-wrapper-5">Not a Join user?</div>
+        <div class="button-wrapper" onclick="">
+            <button class="button-3">Sign up</button>
+        </div>
+    </div>
+    <div class="frame-213">
+        <div class="text-button">
+            <a href="./legal-external.html" target="_blank">
+                <div class="text-wrapper-6">Privacy Policy</div>
+            </a>
+        </div>
+        <div class="div-wrapper">
+            <a href="./privacy-external.html" target="_blank">
+                <div class="text-wrapper-6">Legal notice</div>
+            </a>
+        </div>
+    </div>
+</div>

@@ -15,8 +15,10 @@ export class LoginComponent {
 
   username: string = '';
   password: string = '';
-
-  constructor(private as:AuthService, private router: Router) {}
+  logoAnimation = true;
+  constructor(private as:AuthService, private router: Router) {
+    this.move();
+  }
 
   ngOnInit(): void {}
 
@@ -29,5 +31,21 @@ export class LoginComponent {
     } catch (error) {
       console.log(error);
     }
+  }
+
+  move() {
+    setTimeout(() => {
+      this.logoAnimation = false;
+      // this.("logo_container").classList.remove("background");
+      // document.getElementById("join_logo").classList.remove("background");
+      // document.getElementById("join_logo2").classList.remove("background");
+      // document.getElementById("logo_container").classList.remove("big_size");
+      // document
+      //   .getElementById("join_logo2")
+      //   .classList.remove("join_logo_start_responsiv");
+      // document
+      //   .getElementById("join_logo2")
+      //   .classList.add("join_logo_start_responsiv2");
+    }, 1000);
   }
 }
