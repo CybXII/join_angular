@@ -21,5 +21,5 @@ from join.views import LoginView, BoardView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', LoginView.as_view()),
-    path('board/', BoardView.as_view()),
+    path('main/', BoardView.as_view()),
 ]

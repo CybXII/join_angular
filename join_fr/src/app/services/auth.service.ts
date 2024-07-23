@@ -10,8 +10,8 @@ export class AuthService {
   constructor(private http: HttpClient ) { }
 
   
-  loginWithEmailAndPassword(username: string, password: string): Observable<any> {
-    return this.http.post<any>(environment.baseURL + '/login/', { username, password });
+  loginWithEmailAndPassword(username: string, password: string ,remember: boolean): Observable<any> {
+    return this.http.post<any>(environment.baseURL + '/login/', { username, password,remember });
   }
 
   setToken(token: string): void {

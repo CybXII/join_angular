@@ -1,3 +1,4 @@
+
 .log-in .frame-156 {
     display: inline-flex;
     align-items: center;
@@ -7,11 +8,12 @@
     right: 60px;
 }
 
-  .frame-155 svg {
-    position: relative;
-    width: 24px;
-    height: 24px;
-  }
+.login-card{
+    background-color: var(--color-secondary);
+    border: none;
+    border-radius: 30px;
+    box-shadow: var(--shadoe-backlog-box);
+}
 
 .log-in .frame-153 {
     position: relative;
@@ -135,18 +137,6 @@
         justify-content: space-between;
     }
 
-    .log-in .frame-wrapper{
-        width: unset;
-    }
-    .log-in .frame-14 {
-        width: 100%;
-    }
-
-    .log-in .form_div {
-        gap: 16px;
-        height: unset;
-    }
-
     .log-in .frame-6 {
         display: flex;
         justify-content: center;
@@ -191,4 +181,3 @@
         width: fit-content;
     }
 }
-

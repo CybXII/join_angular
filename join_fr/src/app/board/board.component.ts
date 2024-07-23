@@ -25,7 +25,7 @@ export class BoardComponent implements OnInit{
   }
 
   getTodos(){
-    const url = environment.baseURL + '/board/';
+    const url = environment.baseURL + '/main/';
     let headers = new HttpHeaders();
     headers = headers.set('Authorization', 'Token ' + localStorage.getItem('token'));
     return lastValueFrom(this.http.get(url,{

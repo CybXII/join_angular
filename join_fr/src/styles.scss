@@ -1,9 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
-* {
-    margin: 0;
-    font-family: "Inter";
-  }
-  
+
+
   body {
     background-color: #f6f7f8;
   }
@@ -1407,5 +1403,14 @@
     --barra-superior: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
     --variable-collection-red-40-DA: rgba(253, 91, 79, 1);
     --variable-collection-blue-85-DA: rgba(18, 70, 88, 1);
+    --md-outlined-text-field-container-shape: 0px;
+    --md-sys-typescale-body-large: 400 1rem system-ui;
+    --md-sys-color-primary: #006a6a;
+    --md-outlined-text-field-label-text-color: #3f4948;
+    --md-outlined-text-field-input-text-color: #161d1d;
   }
   
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
