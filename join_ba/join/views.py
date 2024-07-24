@@ -12,7 +12,7 @@ class BoardView(APIView):
     permission_classes = [IsAuthenticated]
     
     def get(self, request, format=None):
-        todos = BoardItem.objects.filter(author=request.user)
+        todos = BoardItem.objects.all()
         serializer = BoardItemSerializer(todos, many=True)
         return Response(serializer.data)
 
@@ -26,6 +26,6 @@ class LoginView(ObtainAuthToken):
         token, created = Token.objects.get_or_create(user=user)
         return Response({
             'token': token.key,
-            'user_id': user.pk,
-            'email': user.email
+            'user_id': user.username,
+            'email': user.email,
         })

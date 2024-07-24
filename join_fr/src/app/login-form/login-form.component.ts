@@ -56,4 +56,9 @@ export class LoginFormComponent {
       console.log(error);
     }
   }
+  async guestlogin() {
+      this.username = 'guest';
+      this.password = 'test_1234';
+      this.login();
+  }
 }

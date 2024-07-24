@@ -1,5 +1,5 @@
-from django.db import models
 from django.conf import settings
+from django.db import models
 from datetime import datetime
 
 # Create your models here.
@@ -12,5 +12,9 @@ class BoardItem(models.Model):
     created_at = models.DateField(default= datetime.now)
     checked = models.BooleanField(default=False)
 
-    def __str__(self):
-        return f'({self.id}) {self.title}'
+def __str__(self):
+        return f'({self.id}) {self.title} by {self.author.username}'
+
+@property
+def username(self):
+        return self.author.username

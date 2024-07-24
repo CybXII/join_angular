@@ -21,8 +21,10 @@ export class LoginComponent {
   }
 
   move() {
+    if (this.logoAnimation) {
     setTimeout(() => {
       this.logoAnimation = false;
     }, 1000);
+    }
   }
 }

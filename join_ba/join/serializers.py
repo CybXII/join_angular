@@ -2,6 +2,8 @@ from rest_framework import serializers
 from join.models import BoardItem
 
 class BoardItemSerializer(serializers.ModelSerializer):
+    username = serializers.ReadOnlyField(source='author.username')
+
     class Meta:
         model = BoardItem
-        fields = '__all__'
+        fields = ['id', 'title', 'username', 'created_at', 'checked']

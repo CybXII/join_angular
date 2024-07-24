@@ -1,5 +1,4 @@
 
-
   body {
     background-color: #f6f7f8;
   }
@@ -11,7 +10,42 @@
   .header_logo {
     display: none;
   }
+  app-main{
+    mat-drawer-container{
+      background-color: var(--white);
+    }
   
+    .mat-drawer-container{
+      background-color: var(--white);
+      color: #000;
+
+    }
+    .mat-drawer-inner-container {
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  
+  }
+  
+  .mat-drawer-content {
+    width: 100%;
+    height: 100%;
+  }
+  app-root {
+    width: 100%;
+    height: 100%;
+  }
+  
+
+  .mat-mdc-card-content {
+    height: 100%;
+    display: block;
+  }
+
   .logo_container {
     position: absolute;
     top: 0;
@@ -550,7 +584,8 @@
     position: relative;
     margin: 96px 0 0 232px;
   }
-  
+
+
   .header {
     box-sizing: border-box;
     display: flex;

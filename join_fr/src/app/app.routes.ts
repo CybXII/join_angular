@@ -4,6 +4,9 @@ import { BoardComponent } from './board/board.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { MainComponent } from './main/main.component';
+import { ContactsComponent } from './contacts/contacts.component';
+import { AddTaskComponent } from './add-task/add-task.component';
+import { SummaryComponent } from './summary/summary.component';
 
 export const routes: Routes = [
     { 
@@ -21,18 +24,26 @@ export const routes: Routes = [
                 component: SignupFormComponent, // another child route component that the router renders
             },
         ]
-        
     },
     { 
         path: 'main',
         component: MainComponent,
         children: [
+            { path: '', redirectTo: 'main', pathMatch: 'full' },
             {
+                path: 'summary', // child route path
+                component: SummaryComponent, // child route component that the router renders
+            },            {
+                path: 'addTask', // child route path
+                component: AddTaskComponent, // child route component that the router renders
+            },            {
                 path: 'board', // child route path
-                title: 'board',
                 component: BoardComponent, // child route component that the router renders
+            },            {
+                path: 'contacts', // child route path
+                component: ContactsComponent, // child route component that the router renders
             },
-        ]        
+        ],     
     },
     { path: '', redirectTo: 'login', pathMatch: 'full' },
 

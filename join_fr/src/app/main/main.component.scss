@@ -1,0 +1,138 @@
+app-board{
+  overflow: scroll;
+}
+
+a{
+    color: aliceblue;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+.frame-10{display: flex;
+  width: 100%;
+  height: 46px;
+  align-items: center;
+  gap: 8px;
+  color: #cdcdcd;
+  justify-content: center;
+}
+
+.toolbar{
+  padding: 0 40px;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  align-self: stretch;
+  .links span{
+    text-decoration: none;
+    color: var(--icon, #a8a8a8);
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 16px;
+    }
+    .links > span:hover {
+      color: #1aa7e4;
+      cursor: pointer;
+  }
+}
+
+
+.logo{
+  
+  margin: 64px}
+
+.top_menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+  app-board{
+    width: 100%;
+    height: 100%;
+  }
+
+.menu{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  li{
+    display: flex;
+    width: 232px;
+    height: 46px;
+    align-items: center;
+    gap: 8px;
+    color: #cdcdcd;
+    justify-content: center;
+    border-radius: 0;
+  };
+}
+
+.flex-container{
+      position: fixed;
+      display: flex;
+      width: 100%;
+      align-items: center;
+      padding: 20px 0px;
+      background-color: var(--white);
+      color: black;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+      z-index: 1;
+    }
+
+  .mainContainer {
+      display: flex;
+      justify-content: flex-start;
+      width: 100%;
+      height: 100%;
+      border: 1px solid rgba(0, 0, 0, 0.5);
+      overflow: auto;
+  }
+  
+    .sidenav-content {
+      display: flex;
+      justify-content: center;
+  }
+  
+    .sidenav {
+      display: flex;
+      width: 232px;
+      height: 100vh;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+      background: #2a3647;
+      box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      z-index: 50;
+      top: 0;
+      position: fixed;
+      border-radius: 0;
+      width: 232px;
+      
+
+    .logo{
+      display: flex;
+      align-items: center;
+    }
+    
+    ul{
+      padding-inline-start: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px
+    }
+  }
+
+
+  .isActive{
+    background-color: red;
+  }
