@@ -19,7 +19,58 @@ a{
 }
 
 .toolbar{
+  h6{
+    margin: 0;
+  }
+  width: calc(100% - 312px);
   padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .icon{
+    color: var(--icon);
+  }
+  .icon:hover{
+    scale: 1.1;
+  }
+  div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    border-radius: 559px;
+    background: var(--white, #fff);
+    .group-9 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 60px;
+      height: 60px;
+      flex-shrink: 0;
+      border: 3px solid #2A3647;
+      border-radius: 50%;
+      color: #29ABE2;
+      font-weight: 700;
+    }
+    .group-9:hover {
+      background-color: #0c2e621f;
+  }
+  }
+}
+
+.logoutBox {
+  right: 20px;
+  width: 150px;
+  height: 158px;
+  padding: 10px;
+  overflow: hidden;
+  background-color: #2a3647;
+  border-radius: 20px 0px 20px 20px;
+  box-shadow: 0px 0px 4px 0px #0000001a;
+  .boxHover:hover {
+    background-color: var(--active-button);
+  }
 }
 
 .footer {
@@ -114,6 +165,7 @@ a{
       position: fixed;
       z-index: 50;
       top: 0;
+      left: 0;
       position: fixed;
       border-radius: 0;
       width: 232px;
@@ -134,5 +186,5 @@ a{
 
 
   .isActive{
-    background-color: red;
+    background-color: var(--active-button);
   }

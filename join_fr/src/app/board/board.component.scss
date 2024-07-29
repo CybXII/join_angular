@@ -1,16 +1,3 @@
-.board{
-    position: relative;
-    display: flex;
-    top: 84px;
-    width: var(calc(100% - 232px));
-    background-color: var(--white);
-    margin: 42px 64px;
-    padding: 0 ;
-    z-index: 0;
-    height: calc(100% - 126px);
-    overflow-y: hidden;
-}
-
 .board_columns{
     display: flex;
     flex-direction: column;

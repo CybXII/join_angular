@@ -2,7 +2,18 @@
   body {
     background-color: #f6f7f8;
   }
-  
+
+  .main {
+    position: relative;
+    display: flex;
+    top: 84px;
+    width: calc(100% - 128px);
+    background-color: var(--white);
+    padding: 42px 64px;
+    z-index: 0;
+    height: calc(100% - 168px);
+    overflow-y: hidden;
+}  
   .logo_sidebar {
     margin: 64px;
   }
@@ -10,6 +21,7 @@
   .header_logo {
     display: none;
   }
+  
   app-main{
     mat-drawer-container{
       background-color: var(--white);
@@ -1384,6 +1396,21 @@
       left: 0px;
     }
   }
+
+  .cdk-overlay-container {
+    transform: translate(30px, 26px);
+
+      .mat-mdc-menu-panel{
+        background-color: #2a3647;
+        border-radius: 20px 0px 20px 20px;
+      }
+      .mat-mdc-menu-content{
+          padding: 0;
+  
+      }
+  
+    }
+
   :root {  
     --color-primary:#ff0000;
     --color-secondary:#ffffff;

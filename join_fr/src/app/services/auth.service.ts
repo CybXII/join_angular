@@ -6,9 +6,12 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class AuthService {
+  public logoAnimation = true;
 
   constructor(private http: HttpClient ) { }
-
+  disableAnimation() {
+    this.logoAnimation = false;
+  }
   
   loginWithEmailAndPassword(username: string, password: string ,remember: boolean): Observable<any> {
     return this.http.post<any>(environment.baseURL + '/login/', { username, password,remember });

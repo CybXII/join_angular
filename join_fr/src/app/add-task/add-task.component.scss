@@ -1,0 +1,32 @@
+.main{
+    display: flex;
+    flex-direction: column;
+}
+
+.addTask_Card{
+    display: flex;
+    justify-content: center;
+    border: unset;
+}
+
+.addTask_Form{
+    display: flex;
+    justify-content: flex-start;
+    max-width: 970px;
+}
+
+.right_Card{
+    display: flex;
+    flex-direction: column;  
+    margin-left: 20px;
+    width: 100%;
+
+}
+
+.left_Card{
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+    width: 100%;
+
+}

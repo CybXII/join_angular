@@ -13,17 +13,18 @@ import {MatCardModule} from '@angular/material/card';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-
-  logoAnimation = true;
+  animation: boolean;
   constructor(private as:AuthService, private router: Router) {
+    this.animation= this.as.logoAnimation;
     this.move();
     this.router.navigate(['login']);
   }
 
   move() {
-    if (this.logoAnimation) {
+    if (this.animation) {
     setTimeout(() => {
-      this.logoAnimation = false;
+      this.as.disableAnimation();
+      this.animation= this.as.logoAnimation;
     }, 1000);
     }
   }
