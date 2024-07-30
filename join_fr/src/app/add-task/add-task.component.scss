@@ -42,7 +42,14 @@
     flex-flow:nowrap !important;
 }
 
-.mat-mdc-chip-set-stacked{
+.vertical-line{
+    height: 100%;
+}
+
+
+div.mat-mdc-chip-set.mdc-evolution-chip-set__chips {
+    display: flex;
+    flex-direction: column !important;
 }
 
 // .pd{

@@ -39,6 +39,16 @@
     align-items: flex-start;
     height: 60px;
 }
+mat-chip-grid .mdc-evolution-chip-set__chips{
+  display: flex;
+  flex-direction: column !important;
+  height: 100px;
+  overflow-y: auto;
+}
+
+.mat-mdc-menu-item-text{
+  color: var(--white);
+}
 
   .mdc-evolution-chip__action mat-mdc-chip-action .mdc-evolution-chip__action--primary{
     border: none;

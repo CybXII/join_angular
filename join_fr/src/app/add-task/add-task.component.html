@@ -4,56 +4,68 @@
         <mat-card-content>
             <form class="addTask_Form" action="">
                 <div class="left_Card">
-                    <mat-label>Title</mat-label>
                     <mat-form-field>
-                        <mat-label>Enter a Title</mat-label>
-                        <input matInput>
+                        <mat-label>Title</mat-label>
+                        <input placeholder="Enter a Title" matInput required="true">
                     </mat-form-field>
-                    <mat-label>Description</mat-label>
                     <mat-form-field>
-                        <mat-label>Enter a Description</mat-label>
-                        <textarea matInput></textarea>
+                        <mat-label>Description</mat-label>
+                        <textarea placeholder="Enter a Description" matInput></textarea>
                     </mat-form-field>
-                    <mat-label>Assined To</mat-label>
                     <mat-form-field>
-                        <mat-label>Select contacts to assign</mat-label>
-                        <mat-select [formControl]="contacts" multiple>
+                        <mat-label>Assigned To</mat-label>
+                        <mat-select placeholder="Select contacts to assign" [formControl]="contacts" multiple>
                             @for (topping of contactsList; track topping) {
                             <mat-option [value]="topping">{{topping}}</mat-option>
                             }
                         </mat-select>
                     </mat-form-field>
                 </div>
+                <svg class="vertical-line" width="2" height="1000" viewBox="0 0 2 1000" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.24805 1L1.24854 1000" stroke="#D1D1D1" stroke-linecap="round" />
+                </svg>
                 <div class="right_Card">
-                    <mat-label>Choose a date</mat-label>
                     <mat-form-field>
-                        <input placeholder="MM/DD/YYYY" matInput [min]="todayDate" t [matDatepicker]="picker">
-                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-label>Choose a date</mat-label>
+                        <input required="true" placeholder="MM/DD/YYYY" matInput [min]="todayDate"
+                            [matDatepicker]="picker">
                         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
                     </mat-form-field>
                     <div class="prio">
                         <mat-label>Prio</mat-label>
-                        <mat-chip-listbox class="mat-mdc-chip-set-stacked" aria-orientation="vertical" aria-label="Prio">
+                        <mat-chip-listbox class="mat-mdc-chip-set-stacked" aria-orientation="vertical"
+                            aria-label="Prio">
                             @for (category of categorys; track category) {
                             <mat-chip-option class="pd {{category}}">{{category}}</mat-chip-option>
                             }
                         </mat-chip-listbox>
                     </div>
-                    <mat-label>Category</mat-label>
                     <mat-form-field>
-                        <mat-label>Select Task Category</mat-label>
-                        <mat-select>
+                        <mat-label>Category</mat-label>
+                        <mat-select placeholder="Select Task Category" required="true">
                             <mat-option value="Technical Task">Technical Task</mat-option>
                             <mat-option value="User Story">User Story</mat-option>
                         </mat-select>
                     </mat-form-field>
                     <mat-form-field>
-                        <mat-label>Textarea</mat-label>
-                        <textarea matInput></textarea>
+                        <mat-label>Subtasks</mat-label>
+                        <input name="currentSubtask" placeholder="New Subtask" #subtaskInput
+                            [(ngModel)]="currentSubtask" [matChipInputFor]="chipGrid"
+                            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="add($event)" />
+                        <mat-chip-grid class="column" #chipGrid>
+                            @for (subtask of subtasks(); track $index) {
+                            <mat-chip-row (removed)="remove(subtask)">
+                                {{subtask}}
+                                <button matChipRemove [attr.aria-label]="'remove ' + subtask">
+                                    <mat-icon>cancel</mat-icon>
+                                </button>
+                            </mat-chip-row>
+                            }
+                        </mat-chip-grid>
                     </mat-form-field>
                 </div>
-
             </form>
         </mat-card-content>
     </mat-card>
