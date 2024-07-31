@@ -52,12 +52,14 @@
             <!-- <app-login-form></app-login-form> -->
         </mat-card-content>
     </mat-card>
-    <div class="frame-156" id="frame-156">
-        <div class="text-wrapper-5">Not a Join user?</div>
-        <div class="button-wrapper" onclick="">
-            <button class="button-3" routerLink="signup">Sign up</button>
-        </div>
-    </div>
+    @if ( currentPath == 'login') {
+        <div class="frame-156" id="frame-156">
+            <div class="text-wrapper-5">Not a Join user?</div>
+            <div class="button-wrapper" routerLink="signup">
+                <button class="button-3">Sign up</button>
+            </div>
+        </div>    
+    }
     <div class="frame-213">
         <div class="text-button">
             <a href="./legal-external.html" target="_blank">

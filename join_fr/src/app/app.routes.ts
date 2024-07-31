@@ -27,7 +27,6 @@ export const routes: Routes = [
             component: SignupFormComponent, // another child route component that the router renders
         },
         { path: '', redirectTo: 'login', pathMatch: 'full' },
-
     ]
     },
     {

@@ -1,11 +1,13 @@
 <div class="main">
-    <h1>Add Task</h1>
+    <div class="frame-40">
+        Add Task
+    </div>
     <mat-card class="addTask_Card" appearance="outlined">
         <mat-card-content>
             <form action="">
                 <mat-card-content class="addTask_Form">
                 <div class="left_Card">
-                    <mat-label>Title</mat-label>
+                    <mat-label>Title<span class="star">*</span></mat-label>
                     <mat-form-field appearance="outline">
                         <input placeholder="Enter a Title" matInput required="true">
                     </mat-form-field>
@@ -27,7 +29,7 @@
                     <path d="M1.24805 1L1.24854 1000" stroke="#D1D1D1" stroke-linecap="round" />
                 </svg>
                 <div class="right_Card">
-                    <mat-label>Choose a date</mat-label>
+                    <mat-label>Choose a date<span class="star">*</span></mat-label>
                     <mat-form-field appearance="outline">
                         <input required="true" placeholder="MM/DD/YYYY" matInput [min]="todayDate"
                             [matDatepicker]="picker">
@@ -43,7 +45,7 @@
                             }
                         </mat-chip-listbox>
                     </div>
-                    <mat-label>Category</mat-label>
+                    <mat-label>Category<span class="star">*</span></mat-label>
                     <mat-form-field appearance="outline">
                         <mat-select placeholder="Select Task Category" required="true">
                             <mat-option value="Technical Task">Technical Task</mat-option>
@@ -75,18 +77,22 @@
             <mat-card-content>
                 <div class="addTask_Button_Container">
                     <mat-hint>
-                        <span>*</span>
+                        <span class="star">*</span>
                         This field is required
                     </mat-hint>
                     <div class="addTask_Buttons">
-                        <button mat-raised-button (click)="clearForm(); false">
-                            Clear
-                            <mat-icon>clear</mat-icon>
-                        </button>
-                        <button mat-raised-button>
-                            Create Task
-                            <mat-icon>check</mat-icon>
-                        </button>
+                        <div class="button-secondary">
+                            <button class="button-3" (click)="clearForm(); false">
+                                Clear
+                                <mat-icon>clear</mat-icon>
+                            </button>
+                        </div>
+                        <div class="button-wrapper">
+                            <button class="button-3">
+                                Create Task
+                                <mat-icon>check</mat-icon>
+                            </button>
+                        </div>
                     </div>
                 </div>    
             </mat-card-content>

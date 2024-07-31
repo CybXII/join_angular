@@ -1,25 +1,29 @@
 <form class="frame-153" id="frame-153" onsubmit (ngSubmit)="login()" method="post">
+    <div class="frame-159">
+        <div class="text-wrapper">Log in</div>
+        <svg width="154" height="3" viewBox="0 0 154 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path id="Vector 5" d="M152 1.5L2 1.5" stroke="#29ABE2" stroke-width="3" stroke-linecap="round" />
+        </svg>
+    </div>
     <mat-form-field color="primary" appearance="outline">
         <mat-label>User</mat-label>
         <input type="text" name="username" matInput placeholder="User" [(ngModel)]="username" required>
         <mat-icon matSuffix>mail</mat-icon>
-        <mat-hint>Hint</mat-hint>
     </mat-form-field>
     <mat-form-field color="primary" appearance="outline">
         <mat-label>Enter your password</mat-label>
         <input name="password" [(ngModel)]="password" required matInput [type]="hide() ? 'password' : 'text'" />
         <mat-icon mat-icon-button matSuffix (click)="clickEvent($event); false;" [attr.aria-label]="'Hide password'"
             [attr.aria-pressed]="hide()">{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
-        <mat-hint>Hint</mat-hint>
     </mat-form-field>
     <mat-checkbox name="accept" color="primary" [(ngModel)]="remember" required>Remember
         me</mat-checkbox>
     <div class="frame-176">
-        <div class="button-container">
-            <button type="submit" mat-raised-button color="primary">Login</button>
+        <div  (click)="login(); false" class="button-wrapper">
+            <button class="button-3" type="submit" color="primary">Login</button>
         </div>
-        <div class="button-container">
-            <button (click)="guestlogin(); false" mat-stroked-button color="secondary">Guest Login</button>
+        <div (click)="guestlogin(); false" class="button-secondary">
+            <button class="button-3"  color="secondary">Guest Login</button>
         </div>
     </div>
 </form>

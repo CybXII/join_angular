@@ -7,10 +7,17 @@ import { environment } from '../../environments/environment';
 })
 export class AuthService {
   public logoAnimation = true;
-
-  constructor(private http: HttpClient ) { }
+  public currentPath = '';
+  constructor(private http: HttpClient ) { 
+    this.getCurrentURL();
+  }
   disableAnimation() {
     this.logoAnimation = false;
+  }
+
+  getCurrentURL(){
+    this.currentPath=window.location.hash.replace(/#\//g, '')
+    console.log(this.currentPath);
   }
   
   loginWithEmailAndPassword(username: string, password: string ,remember: boolean): Observable<any> {
