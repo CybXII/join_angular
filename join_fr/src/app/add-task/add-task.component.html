@@ -2,18 +2,19 @@
     <h1>Add Task</h1>
     <mat-card class="addTask_Card" appearance="outlined">
         <mat-card-content>
-            <form class="addTask_Form" action="">
+            <form action="">
+                <mat-card-content class="addTask_Form">
                 <div class="left_Card">
-                    <mat-form-field>
-                        <mat-label>Title</mat-label>
+                    <mat-label>Title</mat-label>
+                    <mat-form-field appearance="outline">
                         <input placeholder="Enter a Title" matInput required="true">
                     </mat-form-field>
-                    <mat-form-field>
-                        <mat-label>Description</mat-label>
+                    <mat-label>Description</mat-label>
+                    <mat-form-field appearance="outline">
                         <textarea placeholder="Enter a Description" matInput></textarea>
                     </mat-form-field>
-                    <mat-form-field>
-                        <mat-label>Assigned To</mat-label>
+                    <mat-label>Assigned To</mat-label>
+                    <mat-form-field appearance="outline">
                         <mat-select placeholder="Select contacts to assign" [formControl]="contacts" multiple>
                             @for (topping of contactsList; track topping) {
                             <mat-option [value]="topping">{{topping}}</mat-option>
@@ -26,8 +27,8 @@
                     <path d="M1.24805 1L1.24854 1000" stroke="#D1D1D1" stroke-linecap="round" />
                 </svg>
                 <div class="right_Card">
-                    <mat-form-field>
-                        <mat-label>Choose a date</mat-label>
+                    <mat-label>Choose a date</mat-label>
+                    <mat-form-field appearance="outline">
                         <input required="true" placeholder="MM/DD/YYYY" matInput [min]="todayDate"
                             [matDatepicker]="picker">
                         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
@@ -35,39 +36,61 @@
                     </mat-form-field>
                     <div class="prio">
                         <mat-label>Prio</mat-label>
-                        <mat-chip-listbox class="mat-mdc-chip-set-stacked" aria-orientation="vertical"
-                            aria-label="Prio">
+                        <mat-chip-listbox appearance="outline" class="mat-mdc-chip-set-stacked"
+                            aria-orientation="vertical" aria-label="Prio">
                             @for (category of categorys; track category) {
                             <mat-chip-option class="pd {{category}}">{{category}}</mat-chip-option>
                             }
                         </mat-chip-listbox>
                     </div>
-                    <mat-form-field>
-                        <mat-label>Category</mat-label>
+                    <mat-label>Category</mat-label>
+                    <mat-form-field appearance="outline">
                         <mat-select placeholder="Select Task Category" required="true">
                             <mat-option value="Technical Task">Technical Task</mat-option>
                             <mat-option value="User Story">User Story</mat-option>
                         </mat-select>
                     </mat-form-field>
-                    <mat-form-field>
-                        <mat-label>Subtasks</mat-label>
-                        <input name="currentSubtask" placeholder="New Subtask" #subtaskInput
-                            [(ngModel)]="currentSubtask" [matChipInputFor]="chipGrid"
-                            [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="add($event)" />
-                        <mat-chip-grid class="column" #chipGrid>
-                            @for (subtask of subtasks(); track $index) {
-                            <mat-chip-row (removed)="remove(subtask)">
-                                {{subtask}}
-                                <button matChipRemove [attr.aria-label]="'remove ' + subtask">
-                                    <mat-icon>cancel</mat-icon>
-                                </button>
-                            </mat-chip-row>
-                            }
-                        </mat-chip-grid>
-                    </mat-form-field>
+                    <div class="subtasks">
+                        <mat-label for="currentSubtask">Subtasks</mat-label>
+                        <mat-form-field appearance="outline">
+                            <input name="currentSubtask" placeholder="Add new subtasks" #subtaskInput
+                                [(ngModel)]="currentSubtask" placeholder="Enter subtasks" [matChipInputFor]="chipGrid"
+                                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                (matChipInputTokenEnd)="add($event)" />
+                            <mat-chip-grid cclass="mat-mdc-chip-set-stacked" #chipGrid>
+                                @for (subtask of subtasks(); track $index) {
+                                <div class="subtask_options">
+                                    <mat-chip-row (removed)="remove(subtask)">
+                                        -
+                                        <input value="{{subtask}}" matInput required="true">
+                                        <mat-icon matChipRemove [attr.aria-label]="'remove ' + subtask">cancel</mat-icon>
+                                    </mat-chip-row>
+                                </div>
+                                }
+                            </mat-chip-grid>
+                        </mat-form-field>
+                    </div>
                 </div>
+            </mat-card-content>
+            <mat-card-content>
+                <div class="addTask_Button_Container">
+                    <mat-hint>
+                        <span>*</span>
+                        This field is required
+                    </mat-hint>
+                    <div class="addTask_Buttons">
+                        <button mat-raised-button (click)="clearForm(); false">
+                            Clear
+                            <mat-icon>clear</mat-icon>
+                        </button>
+                        <button mat-raised-button>
+                            Create Task
+                            <mat-icon>check</mat-icon>
+                        </button>
+                    </div>
+                </div>    
+            </mat-card-content>
             </form>
         </mat-card-content>
     </mat-card>
-
 </div>

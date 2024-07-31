@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, inject, model, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, model, signal } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
@@ -41,7 +41,7 @@ export class AddTaskComponent {
 
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   readonly currentSubtask = model('');
-  readonly subtasks = signal(['Lemon','Lemon','Lemon']);
+  readonly subtasks = signal(['Example']);
   readonly allSubtasks: string[] = [];
 
   readonly announcer = inject(LiveAnnouncer);
@@ -77,4 +77,8 @@ export class AddTaskComponent {
     event.option.deselect();
   }
 
+
+  clearForm() {
+    this.contacts.setValue('');
+  }
 }

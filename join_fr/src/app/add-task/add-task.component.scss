@@ -3,6 +3,63 @@
     flex-direction: column;
 }
 
+.input_border{
+    padding: 10px; 
+    border: 2px solid #000000b9;
+    border-radius: 4px;
+    display: flex;
+}
+
+.subtasks{
+    position: relative;
+    flex: unset !important;
+    width: 100%;
+    box-sizing: border-box;
+    .mat-mdc-form-field {
+        width: 100%;
+    }
+}
+
+.subtask_options:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.subtask_options{
+    width: 100%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    gap: 10px;
+    .mdc-evolution-chip__action {
+        justify-content: flex-start;
+    }
+}
+
+.addTask_Button_Container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    .addTask_Buttons{
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+        button{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+button {
+    height: 48px;
+    border-radius: 8px;
+}
+
 .addTask_Card{
     display: flex;
     justify-content: center;

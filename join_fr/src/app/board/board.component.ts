@@ -10,10 +10,11 @@ import {
   CdkDrag,
   CdkDropList,
 } from '@angular/cdk/drag-drop';
+import { MatIcon } from '@angular/material/icon';
 @Component({
   selector: 'app-board',
   standalone: true,
-  imports: [MatCardModule,CdkDropList, CdkDrag],
+  imports: [MatCardModule,CdkDropList, CdkDrag, MatIcon],
   templateUrl: './board.component.html',
   styleUrl: './board.component.scss'
 })
