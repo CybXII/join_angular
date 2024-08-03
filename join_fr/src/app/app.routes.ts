@@ -10,60 +10,96 @@ import { SummaryComponent } from './summary/summary.component';
 import { LegalNoticeComponent } from './legal-notice/legal-notice.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { HelpSiteComponent } from './help-site/help-site.component';
+import { ExtPrivacyComponent } from './ext-privacy/ext-privacy.component';
+import { ExtLegalComponent } from './ext-legal/ext-legal.component';
 
 export const routes: Routes = [
     {
-        path: '',
-        component: LoginComponent,
-        children: [
+    path: '',
+    component: LoginComponent,
+    children: [
         {
-            path: 'login', // child route path
+            path: 'login',
             title: 'login',
-            component: LoginFormComponent, // child route component that the router renders
+            component: LoginFormComponent,
         },
         {
             path: 'signup',
             title: 'signup',
-            component: SignupFormComponent, // another child route component that the router renders
+            component: SignupFormComponent,
+        },
+        {
+            path: 'signup/login',
+            redirectTo: 'login',
+            pathMatch: 'full',
         },
         { path: '', redirectTo: 'login', pathMatch: 'full' },
-    ]
+    ],
     },
     {
-        path: 'main',
-        component: MainComponent,
-        children: [
+        path: 'signup/ext_privacy',
+        redirectTo: 'ext_privacy', 
+        pathMatch: 'full'       
+    },
+    {
+        path: 'login/ext_privacy',
+        redirectTo: 'ext_privacy', 
+        pathMatch: 'full'       
+    },
+    {
+        path: 'ext_privacy',
+        title: 'ext_privacy',
+        component: ExtPrivacyComponent,
+    },
+    {
+        path: 'signup/ext_legal',
+        redirectTo: 'ext_legal', 
+        pathMatch: 'full'       
+    },
+    {
+        path: 'login/ext_legal',
+        redirectTo: 'ext_legal', 
+        pathMatch: 'full'       
+    },
+    {
+        path: 'ext_legal',
+        title: 'ext_legal',
+        component: ExtLegalComponent,
+    },
+    {
+    path: 'main',
+    component: MainComponent,
+    children: [
         { path: '', redirectTo: 'board', pathMatch: 'full' },
         {
-            path: 'summary', // child route path
-            component: SummaryComponent, // child route component that the router renders
+            path: 'summary',
+            component: SummaryComponent,
         },
         {
-            path: 'addTask', // child route path
-            component: AddTaskComponent, // child route component that the router renders
+            path: 'addTask',
+            component: AddTaskComponent,
         },
         {
-            path: 'board', // child route path
-            component: BoardComponent, // child route component that the router renders
+            path: 'board',
+            component: BoardComponent,
         },
         {
-            path: 'contacts', // child route path
-            component: ContactsComponent, // child route component that the router renders
+            path: 'contacts',
+            component: ContactsComponent,
         },
         {
-            path: 'privacy', // child route path
-            component: PrivacyComponent, // child route component that the router renders
+            path: 'privacy',
+            component: PrivacyComponent,
         },
         {
-            path: 'legal_notice', // child route path
-            component: LegalNoticeComponent, // child route component that the router renders
+            path: 'legal_notice',
+            component: LegalNoticeComponent,
         },
         {
-            path: 'help', // child route path
-            component: HelpSiteComponent, // child route component that the router renders
+            path: 'help',
+            component: HelpSiteComponent,
         },
-        ],
-
+    ],
     },
     { path: '', redirectTo: 'login', pathMatch: 'full' },
     { path: 'main/login', redirectTo: 'login', pathMatch: 'full' },

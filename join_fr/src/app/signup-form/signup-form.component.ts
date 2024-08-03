@@ -1,7 +1,7 @@
 import { Component,ChangeDetectionStrategy,signal } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import { lastValueFrom } from 'rxjs';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -23,7 +23,10 @@ import { MatButtonModule } from '@angular/material/button';
     MatInputModule,
     MatSelectModule,
     MatIconModule,
-    MatButtonModule],
+    MatButtonModule,
+    RouterLink,
+    RouterLinkActive, 
+    RouterOutlet],
   templateUrl: './signup-form.component.html',
   styleUrl: './signup-form.component.scss'
 })
@@ -33,9 +36,19 @@ export class SignupFormComponent {
   password: string = '';
   passwordChecker: string = '';
   accepted = false;
-
+  currentPath = '';
   constructor(private as:AuthService, private router: Router) {
     this.as.getCurrentURL();
+    this.router.navigate(['signup']);
+  }
+
+
+  ngOnInit(): void {
+
+    // Abonniere Änderungen des Pfads
+    this.as.currentPath$.subscribe(path => {
+      this.currentPath = path;
+    });
   }
 
   hide = signal(true);
@@ -50,9 +63,7 @@ export class SignupFormComponent {
     event.stopPropagation();
   }
 
-  ngOnInit(): void {}
   signup1() {
     console.log('signup1');
-    
   }
 }

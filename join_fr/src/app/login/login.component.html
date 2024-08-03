@@ -1,4 +1,4 @@
-<div class="log-in">
+@if(currentPath == 'login'|| currentPath == 'signup'){<div class="log-in">
     <div class="logo">
         <div id="logo_container"
             class="{{animation ? 'big_size  logo_container_responsiv' : 'capa '}} logo_container ">
@@ -62,14 +62,17 @@
     }
     <div class="frame-213">
         <div class="text-button">
-            <a href="./legal-external.html" target="_blank">
+            <a routerLink="ext_privacy" target="_blank">
                 <div class="text-wrapper-6">Privacy Policy</div>
             </a>
         </div>
         <div class="div-wrapper">
-            <a href="./privacy-external.html" target="_blank">
+            <a routerLink="ext_legal" target="_blank">
                 <div class="text-wrapper-6">Legal notice</div>
             </a>
         </div>
     </div>
-</div>
+</div>}
+@else if (currentPath == 'signup') {
+
+}

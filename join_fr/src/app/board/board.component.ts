@@ -83,8 +83,9 @@ export class BoardComponent implements OnInit{
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);// Frontend bewegung der Cards innerhalb der Category
     } else {
+      console.log("moving from"+event.previousContainer.data+", to Catregory"+event.container.data); //Frontend  Bewegung der Cards zwischen den Categorys
       transferArrayItem(
         event.previousContainer.data,
         event.container.data,

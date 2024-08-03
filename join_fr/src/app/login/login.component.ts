@@ -12,20 +12,27 @@ import {MatCardModule} from '@angular/material/card';
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
+
 export class LoginComponent {
   animation: boolean;
-  currentPath: string = '';
+  currentPath: string;
   
   constructor(private as:AuthService, private router: Router) {
     this.animation= this.as.logoAnimation;
     this.as.getCurrentURL();
-    this.currentPath= this.as.currentPath;
+    this. currentPath ='';
     this.move();
     this.router.navigate(['login']);
   }
 
+  ngOnInit() {
+    // Abonniere Änderungen des Pfads
+    this.as.currentPath$.subscribe(path => {
+      this.currentPath = path;
+    });
+  }
+
   move() {
-    console.log(this.currentPath);
     if (this.animation) {
       setTimeout(() => {
         this.as.disableAnimation();

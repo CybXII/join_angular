@@ -8,6 +8,26 @@
     right: 60px;
 }
 
+.log-in {
+    display: flex;
+    flex-direction: column;
+}
+.log-in .frame-213 {
+    display: flex;
+    justify-content: space-between;
+    width: 246px;
+    position: absolute;
+    bottom: 10px;
+}
+
+.log-in .text-button {
+    padding: 8px;
+}
+
+.log-in .div-wrapper {
+    padding: 8px;
+}
+
 .login-card{
     background-color: var(--color-secondary);
     border: none;
