@@ -4,18 +4,16 @@ from datetime import datetime
 from django.contrib.auth.models import AbstractUser
 
 class CustomUser(AbstractUser):
-    first_name = models.CharField(max_length=20, blank=False, null=False )
-    last_name = models.CharField(max_length=20, blank=False, null=False )
-    username = models.CharField(max_length=150, unique=False, blank=True, null=True)
     email = models.EmailField(unique=True)
     USERNAME_FIELD = 'email'  # E-Mail primäres Login-Feld
-    FIRSTNAME_FIELD = ['username']
-    REQUIRED_FIELDS = ['username','last_name']  # erforderliche Felder (User erstellen)
-    def save(self, *args, **kwargs):
-        if not self.first_name:
-            self.first_name =  self.username # übergebe username an Firstname
-            self.username = self.get_full_name() # überschreibe username mit Vor- und Nachnamen
-        super().save(*args, **kwargs)
+    REQUIRED_FIELDS = ['password']  # erforderliche Felder (User erstellen)
+
+    # def save(self, *args, **kwargs):
+    #     if not self.first_name:
+    #         self.first_name =  self.username # übergebe username an Firstname
+    #         self.username = self.get_full_name() # überschreibe username mit Vor- und Nachnamen
+    #     super().save(*args, **kwargs)
+
     def __str__(self):
         self.firstname = self.username
         return f'{self.first_name} {self.last_name}'

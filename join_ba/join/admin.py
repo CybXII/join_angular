@@ -18,4 +18,4 @@ admin.site.register(Contact)
 
 @admin.register(CustomUser)
 class CustomUserItemAdmin(admin.ModelAdmin):
-    list_display = ('email', 'username', 'date_joined')# , 
+    list_display = ('email', 'username', 'date_joined') 

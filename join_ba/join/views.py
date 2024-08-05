@@ -22,10 +22,10 @@ class BoardView(APIView):
 # Create your views here.
 class LoginView(APIView):
     def post(self, request, *args, **kwargs):
-        username = request.data.get('username')
+        email = request.data.get('email')
         password = request.data.get('password')
         # Versuche, den Benutzer zu authentifizieren
-        user = authenticate(request, username=username, password=password)
+        user = authenticate(request, email=email, password=password)
         if user is not None:
             # Token für den authentifizierten Benutzer generieren
             token, created = Token.objects.get_or_create(user=user)

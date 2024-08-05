@@ -28,8 +28,8 @@ export class AuthService {
     console.log(this.currentPathSubject.value);
   }
   
-  loginWithEmailAndPassword(username: string, password: string ,remember: boolean): Observable<any> {
-    return this.http.post<any>(environment.baseURL + '/login/', { username, password,remember });
+  loginWithEmailAndPassword(email: string, password: string ,remember: boolean): Observable<any> {
+    return this.http.post<any>(environment.baseURL + '/login/', { email, password,remember });
   }
 
   setToken(token: string): void {

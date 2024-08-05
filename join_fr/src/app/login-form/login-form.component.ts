@@ -29,7 +29,7 @@ import {MatButtonModule} from '@angular/material/button';
   styleUrl: './login-form.component.scss'
 })
 export class LoginFormComponent {
-  username: string = '';
+  email: string = '';
   password: string = '';
   remember = false;
   logoAnimation = true;
@@ -47,7 +47,7 @@ export class LoginFormComponent {
 
   async login() {
     try {
-      const response = await lastValueFrom(this.as.loginWithEmailAndPassword(this.username, this.password ,this.remember));
+      const response = await lastValueFrom(this.as.loginWithEmailAndPassword(this.email, this.password ,this.remember));
       await console.log(response);
       this.as.setToken(response.token);
       await localStorage.setItem('remember', this.remember.toString());
@@ -57,7 +57,7 @@ export class LoginFormComponent {
     }
   }
   async guestlogin() {
-      this.username = 'guest';
+      this.email = 'guest';
       this.password = 'test_1234';
       this.login();
   }
