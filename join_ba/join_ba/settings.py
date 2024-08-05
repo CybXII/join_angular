@@ -110,10 +110,10 @@ AUTH_PASSWORD_VALIDATORS = [
 
 AUTH_USER_MODEL = 'join.CustomUser'
 
-AUTHENTICATION_BACKENDS = (
-    'django.contrib.auth.backends.ModelBackend',
-    'join.backends.EmailOrUsernameModelBackend',
-)
+# AUTHENTICATION_BACKENDS = (
+#     'django.contrib.auth.backends.ModelBackend',
+#     'join.backends.EmailOrUsernameModelBackend',
+# )
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/

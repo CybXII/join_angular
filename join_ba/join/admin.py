@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import BoardItem, Contact
+from .models import BoardItem, Contact, CustomUser
 
 # Register your models here.
 @admin.register(BoardItem)
@@ -15,3 +15,7 @@ class BoardItemAdmin(admin.ModelAdmin):
     get_assigned_users.short_description = 'Assigned To'
 
 admin.site.register(Contact)
+
+@admin.register(CustomUser)
+class CustomUserItemAdmin(admin.ModelAdmin):
+    list_display = ('email', 'username', 'date_joined')# , 
