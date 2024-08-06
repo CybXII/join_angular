@@ -11,6 +11,22 @@
     overflow: hidden;
 }
 
+.disabled{
+    all: unset;
+    box-sizing: border-box;
+    margin-top: -1px;
+    color: #0000008b;
+    font-size: 16px;
+    line-height: 19.2px;
+    position: relative;
+    width: fit-content;
+    font-family: "Inter-Bold", Helvetica;
+    font-weight: 700;
+    letter-spacing: 0;
+    white-space: nowrap;
+    cursor: not-allowed;
+}
+
 .arrow_position{
     position: absolute;
     top: 20px;

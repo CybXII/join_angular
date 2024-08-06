@@ -1,4 +1,4 @@
-<form class="frame-153" id="frame-153" onsubmit (ngSubmit)="signup1()" method="post">
+<form class="frame-153" id="frame-153" onsubmit method="post" (ngSubmit)="signup()" #signupForm="ngForm" >
     <div class="arrow-left-line arrow_position" routerLink="login">
         <svg  src="./img/arrow-left-line.svg" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
             <path
@@ -44,9 +44,23 @@
             </a>    
         </div>
     </mat-checkbox>
-    <div class="frame-176">
-        <div (click)="signup1(); false" class="button-wrapper">
+    <!-- <div class="frame-176">
+        <div class="button-wrapper">
             <button class="button-3" type="submit" color="primary">Sign up</button>
         </div>
-    </div>
+    </div> -->
+    @if (signupForm.valid){
+        <div class="frame-176">
+            <div class="button-wrapper">
+                <button class="button-3" type="submit" color="primary">Sign up</button>
+            </div>
+        </div>
+    }@else {
+        <div class="frame-176">
+            <div class="button-wrapper-disabled">
+                <button class="disabled" [disabled]="!signupForm.valid" color="primary">Sign up</button>
+            </div>
+        </div>
+    }
+
 </form>

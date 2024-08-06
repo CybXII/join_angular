@@ -103,4 +103,6 @@ export const routes: Routes = [
     },
     { path: '', redirectTo: 'login', pathMatch: 'full' },
     { path: 'main/login', redirectTo: 'login', pathMatch: 'full' },
+
+    { path: '**', redirectTo: 'login', pathMatch: 'full' },
 ];

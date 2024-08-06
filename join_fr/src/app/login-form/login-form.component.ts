@@ -57,7 +57,7 @@ export class LoginFormComponent {
     }
   }
   async guestlogin() {
-      this.email = 'guest';
+      this.email = 'guest.test@guest.de';
       this.password = 'test_1234';
       this.login();
   }

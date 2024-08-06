@@ -1,7 +1,9 @@
-import { Component,ChangeDetectionStrategy,signal } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+// signup-form.component.ts
+
+import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
+import { FormsModule, ReactiveFormsModule, NgForm } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
-import { Router, RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
+import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { lastValueFrom } from 'rxjs';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -25,8 +27,9 @@ import { MatButtonModule } from '@angular/material/button';
     MatIconModule,
     MatButtonModule,
     RouterLink,
-    RouterLinkActive, 
-    RouterOutlet],
+    RouterLinkActive,
+    RouterOutlet
+  ],
   templateUrl: './signup-form.component.html',
   styleUrl: './signup-form.component.scss'
 })
@@ -37,14 +40,13 @@ export class SignupFormComponent {
   passwordChecker: string = '';
   accepted = false;
   currentPath = '';
-  constructor(private as:AuthService, private router: Router) {
+
+  constructor(private as: AuthService, private router: Router) {
     this.as.getCurrentURL();
     this.router.navigate(['signup']);
   }
 
-
   ngOnInit(): void {
-
     // Abonniere Änderungen des Pfads
     this.as.currentPath$.subscribe(path => {
       this.currentPath = path;
@@ -52,18 +54,27 @@ export class SignupFormComponent {
   }
 
   hide = signal(true);
+
   clickEvent(event: MouseEvent) {
     this.hide.set(!this.hide());
     event.stopPropagation();
   }
 
   checkhide = signal(true);
+
   clickEventcheck(event: MouseEvent) {
     this.checkhide.set(!this.checkhide());
     event.stopPropagation();
   }
 
-  signup1() {
-    console.log('signup1');
+  async signup() {
+    try {
+      const response = await lastValueFrom(
+        this.as.signUPWithEmailAndPassword(this.username, this.email, this.password)
+      );
+    await this.router.navigate(['login']);
+    } catch (error: any) {
+      console.error('Signup error:', error.error || error.message);
+    }
   }
 }
